@@ -1,0 +1,52 @@
+Quick Sort
+
+#include<stdio.h>
+void quick sort (int a[100], int l, int u);
+void main()
+{
+int a[100],n,i;
+printf("\n enter the no. of elements into the array");
+scanf("%d",&n);
+printf("\n enter elements into the array");
+for(i=0;i<n;i++)
+{
+scanf("%d",&a[i]);
+}
+quicksort (a,o,n-1);
+}
+void quick sort(int a[100],int l, int u)
+{
+int i,j,pivot,temp;
+pivot=l;
+i=l;
+j=u;
+if(l<u)
+{
+while(i<j)
+{
+while(a[i]<=a[pivot])
+{
+i++;
+}
+while(a[j]>a[pivot])
+{
+j--;
+}
+if(i<j)
+{
+temp=a[i];
+a[i]=a[j];
+}
+temp=a[j];
+a[j]=a[pivot];
+a[pivot]=temp;
+quick sort(a,l,j-1);
+quicksort(a,j+1,u);
+printf("After sorting the elements are");
+for(i=0;i<n;i++)
+{
+printf("%5d",a[i]);
+}
+}
+}
+}
